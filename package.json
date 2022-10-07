@@ -1,0 +1,29 @@
+{
+  "name": "fem-notifications",
+  "version": "1.0.0",
+  "description": "A frontend mentor challenge",
+  "main": "index.js",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dennismontores/fem-notifications.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dennismontores/fem-notifications/issues"
+  },
+  "homepage": "https://github.com/dennismontores/fem-notifications#readme",
+  "dependencies": {
+    "solid-js": "^1.5.7"
+  },
+  "devDependencies": {
+    "vite": "^3.1.6",
+    "vite-plugin-solid": "^2.3.9"
+  }
+}
