@@ -1,23 +1,41 @@
+import { For, createSignal } from 'solid-js';
 import styles from './App.module.css';
+import NOTIFICATION_ITEMS from './notification-items';
+import NotificationItem from './NotificationItem';
+
+const [notiItems, setNotiItems] = createSignal(NOTIFICATION_ITEMS);
+const [allMarkedAsRead, setAllMarkedAsRead] = createSignal(false);
 
 const App = () => {
+  const handleMarkAll = () => {
+    const items = notiItems().map((item) => ({
+      ...item,
+      isUnread: allMarkedAsRead() ? false : true,
+    }));
+    setNotiItems(items);
+    setAllMarkedAsRead(!allMarkedAsRead());
+  };
+
   return (
-    <div class={styles.App}>
+    <main class={styles.mainContainer}>
       <header class={styles.header}>
-        <p>
-          Edit <code>src/App.jsx</code> and save to reload.
-        </p>
-        <a
-          clas={styles.link}
-          href="https://solidjs.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Solid
-        </a>
+        <div class={styles.titleContainer}>
+          <h1>Notifications</h1>
+          <span class={styles.countUnread}>3</span>
+        </div>
+        <button class={styles.markReadBtn} onclick={handleMarkAll}>
+          Mark all as {allMarkedAsRead() ? 'read' : 'unread'}
+        </button>
       </header>
-    </div>
+      <section class={styles.notificationsContainer}>
+        <For each={notiItems()}>
+          {(item) => <NotificationItem item={item} />}
+        </For>
+      </section>
+    </main>
   );
-}
+};
+
+export { notiItems, setNotiItems };
 
 export default App;

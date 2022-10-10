@@ -1,33 +1,72 @@
-.App {
-  text-align: center;
+:root {
+  --white: hsl(0, 0%, 100%);
+  --dark-grayish-blue: hsl(219, 12%, 42%);
+  --blue: hsl(219, 85%, 26%);
 }
 
-.logo {
-  animation: logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+
+.mainContainer {
+  display: grid;
+  max-width: 620px;
+  padding: .9rem;
+  grid-template-columns: auto;
+  background-color: var(--white);
+  border-radius: 8px;
 }
 
 .header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
 }
 
-.link {
-  color: #b318f0;
+.titleContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+ .countUnread {
+  display: inline-block;
+  font-weight: 800;
+  color: var(--white);
+  margin-left: 10px;
+  padding: 4px 12px;
+  line-height: 18px;
+  border-radius: 8px;
+  background-color: var(--blue);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #000;
+}
+
+/* reset btn */
+.header .markReadBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: inherit;
+  color: var(--dark-grayish-blue);
+  font-weight: 500;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.notificationsContainer{
+  display: grid;
+  grid-template-columns: auto;
+  grid-gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* media query desktop scrren */
+
+@media (max-width: 500px) {
+  .mainContainer {
+    border-radius: 0;
   }
 }
